@@ -113,7 +113,7 @@ const About = ({ about, resume }) => {
             <NameWrapper id={about}>
                 <NameBlock>
                     <Name>Владимир Безобразов</Name>
-                    <Mail>Front-end разоработчик | contact@example.com</Mail>
+                    <Mail>Front-end разоработчик | vovan0503@mail.ru</Mail>
                 </NameBlock>
             </NameWrapper>
             <AboutBlock>
