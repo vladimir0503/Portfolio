@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import vk from './images/vk.png';
 import inst from './images/inst.png';
 
@@ -71,13 +71,9 @@ const ImgDiv = styled.div`
     }
 `;
 
-const FormWrapper = styled.div`
+const FormWrapper = styled.div``;
 
-`;
-
-const Form = styled.form`
-
-`;
+const Form = styled.form``;
 
 const InputDiv = styled.div`
     display: flex;
@@ -136,7 +132,86 @@ const SendBtn = styled.button`
     }
 `;
 
+const Anim = keyframes`
+    0%{ -ms-transform: translateX(0); transform: translateX(0); }
+    5%{ -ms-transform: translateX(-10px); transform: translateX(-10px); }
+    10%{ -ms-transform: translateX(10px); transform: translateX(10px); }
+    15%{ -ms-transform: translateX(-10px); transform: translateX(-10px); }
+    20%{ -ms-transform: translateX(10px); transform: translateX(10px); }
+    25%{ -ms-transform: translateX(-10px); transform: translateX(-10px); }
+    30%{ -ms-transform: translateX(10px); transform: translateX(10px); }
+    35%{ -ms-transform: translateX(-10px); transform: translateX(-10px); }
+    40%{ -ms-transform: translateX(10px); transform: translateX(10px); }
+    45%{ -ms-transform: translateX(-10px); transform: translateX(-10px); }
+    50%{ -ms-transform: translateX(0); transform: translateX(0); }
+`;
+
+const SuccesInfo = styled(P)`
+    cursor: pointer;
+    color: green;
+    animation: ${Anim} 2s linear 0s 1 normal;
+`;
+
+const ErrorInfo = styled(SuccesInfo)`
+    color: red;
+`;
+
 class Contacts extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            feedback: '', 
+            name: '', 
+            email: '',
+            info: null
+        };
+
+	    this.handleChange = this.handleChange.bind(this);
+	    this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(e) {
+        const name = e.target.name;
+        const value = e.target.value;
+        this.setState({ [name]: value });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+
+        const formData = [
+            this.state.feedback,
+            this.state.email,
+            this.state.info
+        ];
+
+        for (let i = 0; i < formData.length; i++) {
+            if(formData[i] === '') {
+                this.setState({
+                    info: <ErrorInfo onClick={() => {this.setState({ info: null })}}>Заполненны не все поля!</ErrorInfo>
+                });
+                return;
+            }
+        }
+
+        const serviseId = 'my_mail';
+        const templateId = 'template_vCNglM1Q';
+        const data = {message_html: this.state.feedback, from_name: this.state.name, reply_to: this.state.email};
+        const userId = 'user_RstMCmmr6oqQJ3543ikzu';
+        
+        window.emailjs.send(serviseId, templateId, data, userId)
+        .then(res => {
+            console.log(res, 'Сообщение успешно отправленно!')
+            this.setState({
+                feedback: '', 
+                name: '', 
+                email: '',
+                info: <SuccesInfo onClick={() => {this.setState({ info: null })}}>Сообщение отправленно.</SuccesInfo>
+            })
+        })
+        .catch(err => {console.log(err, 'Ошибка отправки!')})
+    }
+
     render() {
         return (
             <ContactsWrapper id={this.props.id}>
@@ -158,22 +233,19 @@ class Contacts extends React.Component {
                     </ContactInfo>
                     <FormWrapper>
                         <H5>ФОРМА ОБРАТНОЙ СВЯЗИ</H5>
-                        <Form>
+                        {this.state.info}
+                        <Form onSubmit={this.handleSubmit}>
                             <InputDiv>
                                 <Label>Ваше имя</Label>
-                                <Input type='text' placeholder='Ваше имя'></Input>
+                                <Input type='text' name='name' placeholder='Ваше имя' value={this.state.name} onChange={this.handleChange}></Input>
                             </InputDiv>
                             <InputDiv>
                                 <Label>Ваш email</Label>
-                                <Input type='text' placeholder='Ваш email'></Input>
-                            </InputDiv>
-                            <InputDiv>
-                                <Label>Тема</Label>
-                                <Input type='text' placeholder='Тема'></Input>
+                                <Input type='text' name='email' placeholder='Ваш email' value={this.state.email} onChange={this.handleChange}></Input>
                             </InputDiv>
                             <InputDiv>
                                 <Label>Ваше сообщение</Label>
-                                <TextArea placeholder='Ваше сообщение'></TextArea>
+                                <TextArea name='feedback' placeholder='Ваше сообщение' value={this.state.feedback} onChange={this.handleChange}></TextArea>
                             </InputDiv>
                             <SendBtn type='submit'>Отправить сообщение</SendBtn>
                         </Form>
