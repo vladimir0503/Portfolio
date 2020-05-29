@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import about from './images/about.jpeg';
-
-// const ContentContayner = styled.div`
-
-// `;
+import about from '../images/about.jpeg';
+import Skills from './Skills';
 
 const NameWrapper = styled.div`
     display: flex;
@@ -110,10 +107,10 @@ const Ending = styled(EducationH5)`
     margin-right: 0;
 `;
 
-const About = () => {
+const About = ({ about, resume }) => {
     return (
         <>
-            <NameWrapper>
+            <NameWrapper id={about}>
                 <NameBlock>
                     <Name>Владимир Безобразов</Name>
                     <Mail>Front-end разоработчик | contact@example.com</Mail>
@@ -125,10 +122,10 @@ const About = () => {
                     <P>С 2016 по 2020 год работал менеджером по сертификации строительно-монтажных<br></br>
                     работ. Всегда привлекала IT сфера, а именно веб-разработка. Решил сменить род<br></br>
                     деятельности. Имею опыт адаптивной верскти и разработки SPA-приложений на React. </P>
-                    <Link href='https://yadi.sk/i/PCBnjwZ-1SN9BQ' target='_blank'><H5>СКАЧАТЬ РЕЗЮМЕ</H5></Link>
+                    <Link href='https://yadi.sk/i/PCBnjwZ-1SN9BQ' target='_blank' rel="nofollow noopener"><H5>СКАЧАТЬ РЕЗЮМЕ</H5></Link>
                 </AboutContent>
             </AboutBlock>
-            <EducationBlock>
+            <EducationBlock id={resume}>
                 <EducationContent>
                     <NameContayner>
                         <EducationH5>ОБРАЗОВАНИЕ</EducationH5>
@@ -156,6 +153,7 @@ const About = () => {
                     </NameContayner>
                 </EducationContent>
             </EducationBlock>
+            <Skills />
         </>
     )
 }

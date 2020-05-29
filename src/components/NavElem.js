@@ -10,7 +10,7 @@ const Div = styled.div`
     transition: 0.5s;
     cursor: pointer;
     :hover {
-        background: #2c3e50;
+        background: #1bb899;
     }
 `;
 

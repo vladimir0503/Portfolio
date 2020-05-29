@@ -19,4 +19,14 @@ export const GlobalStyle = createGlobalStyle`
         border: none;
         outline: none;
     }
+
+    input, textarea {
+        -webkit-appearance: media-slider;
+        outline:none;
+    }
+
+    a {
+        text-decoration: none;
+        outline: 0;
+    }   
 `;
