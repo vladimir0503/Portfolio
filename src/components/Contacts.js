@@ -21,6 +21,7 @@ const H5 = styled.h5`
     color: white;
     font-weight: 300;
     margin-right: 64px;
+    margin-bottom: 39px;
 `;
 
 const ContactInfo = styled.div`
@@ -149,6 +150,8 @@ const Anim = keyframes`
 const SuccesInfo = styled(P)`
     cursor: pointer;
     color: green;
+    position: absolute;
+    margin-top: -32px;
     animation: ${Anim} 2s linear 0s 1 normal;
 `;
 
