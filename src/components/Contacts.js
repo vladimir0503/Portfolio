@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import vk from './images/vk.png';
 import inst from './images/inst.png';
+import lader from './images/loader.png'
 
 const ContactsWrapper = styled.div`
     display: flex;
@@ -119,13 +120,17 @@ const TextArea = styled.textarea`
 `;
 
 const SendBtn = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: #44bbaa;
     border: 0;
-    padding: 10px 30px;
     margin-left: 174px;
-    height: 43px;
+    width: 200px;
+    height: 50px;
     border-radius: 4px;
     color: #fff;
+    -webkit-transition: 0.4s;
     transition: 0.4s;
     cursor: pointer;
     :hover {
@@ -159,6 +164,19 @@ const ErrorInfo = styled(SuccesInfo)`
     color: red;
 `;
 
+const loaderAnim = keyframes`
+    100%{ transform: rotate(360deg); }
+`;
+
+const Loader = styled.div`
+    border-radius: 50%;
+    margin: 0;
+    width: 30px;
+    height: 30px;
+    background: url(${lader});
+    animation: ${loaderAnim} 1s ease 0s infinite normal;
+`;
+
 class Contacts extends React.Component {
     constructor(props) {
         super(props);
@@ -166,7 +184,9 @@ class Contacts extends React.Component {
             feedback: '', 
             name: '', 
             email: '',
-            info: null
+            info: null,
+            btnName: 'Отправить сообщение',
+            btnDisabled: false
         };
 
 	    this.handleChange = this.handleChange.bind(this);
@@ -181,6 +201,8 @@ class Contacts extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+
+        console.log('КНОПКА РАБОТАЕТ')
 
         const formData = [
             this.state.feedback,
@@ -197,6 +219,11 @@ class Contacts extends React.Component {
             }
         }
 
+        this.setState({ 
+            btnName: <Loader />,
+            btnDisabled: true
+        })
+
         const serviseId = 'my_mail';
         const templateId = 'template_vCNglM1Q';
         const data = {message_html: this.state.feedback, from_name: this.state.name, reply_to: this.state.email};
@@ -209,13 +236,16 @@ class Contacts extends React.Component {
                 feedback: '', 
                 name: '', 
                 email: '',
-                info: <SuccesInfo onClick={() => {this.setState({ info: null })}}>Сообщение отправленно.</SuccesInfo>
+                info: <SuccesInfo onClick={() => {this.setState({ info: null })}}>Сообщение отправленно.</SuccesInfo>,
+                btnName: 'Отправить сообщение',
+                btnDisabled: false
             })
         })
         .catch(err => {console.log(err, 'Ошибка отправки!')})
     }
 
     render() {
+
         return (
             <ContactsWrapper id={this.props.id}>
                 <ContactsContent>
@@ -250,7 +280,7 @@ class Contacts extends React.Component {
                                 <Label>Ваше сообщение</Label>
                                 <TextArea name='feedback' placeholder='Ваше сообщение' value={this.state.feedback} onChange={this.handleChange}></TextArea>
                             </InputDiv>
-                            <SendBtn type='submit'>Отправить сообщение</SendBtn>
+                            <SendBtn disabled={this.state.btnDisabled} type='submit'>{this.state.btnName}</SendBtn>
                         </Form>
                     </FormWrapper>
                 </ContactsContent>
