@@ -46,7 +46,7 @@ const EyeBlockIn = styled.div`
     width: 550px;
     height: 416px;
     background: transparent;
-    animation: ${AnimIn} 1s ease 0s 1 normal;
+    animation: ${AnimIn} 0.5s ease 0s 1 normal;
 `;
 
 const EyeBlockOut = styled.div`
@@ -56,7 +56,7 @@ const EyeBlockOut = styled.div`
     width: 550px;
     height: 416px;
     background: transparent;
-    animation: ${AnimOut} 1s ease 0s 1 both;
+    animation: ${AnimOut} 0.5s ease 0s 1 both;
 `;
 
 const EyeBlockInitState = styled.div`
@@ -71,6 +71,15 @@ const Content = styled.div`
     width: 960px;
     margin: 0 auto;
     margin-top: 39px;
+    @media screen and (max-width: 1300px) {
+        flex-direction: column;
+        width: 550px;
+        margin: 0 auto;
+        margin-top: 36px;
+    }
+    @media screen and (max-width: 500px) {
+        width: 300px;
+    }
 `;
 
 const H5 = styled.h5`
@@ -91,6 +100,9 @@ const Descript = styled.p`
     width: 361px;
     color: #333;
     margin-right: 97px;
+    @media screen and (max-width: 500px) {
+        width: 300px;
+    }
 `;
 
 const DescriptBlock = styled.div``;
@@ -103,6 +115,9 @@ const LinkWrapper = styled.div`
 const LinkContayner = styled.div`
     display: flex;
     margin-bottom: 25px;
+    @media screen and (max-width: 1300px) {
+        flex-direction: column;
+    }
 `;
 
 const FirstWorkWrapper = styled.div`
@@ -119,6 +134,13 @@ const FirstWorkWrapper = styled.div`
     :hover {
         background-color: #2c3e50;
         background-blend-mode: overlay;
+    }
+    @media screen and (max-width: 1300px) {
+        margin-bottom: 33px;
+    }
+    @media screen and (max-width: 500px) {
+        width: 300px;
+        height: 300px;
     }
 `;
 
@@ -161,9 +183,9 @@ class Works extends React.Component {
                             </FirstWorkWrapper>
                         </a>
                         <DescriptBlock>
-                            <H5>ЛЕНДИНГ С АНИМИРОВАННЫМ СЛАЙДЕРОМ</H5>
-                            <Descript>Одностраничный лендинг дизайнерского агенства.<br></br>
-                        Имеется десктопная и мобильная версия. Так же<br></br> содержит слайдер,
+                        <H5>ЛЕНДИНГ С АНИМИРОВАННЫМ СЛАЙДЕРОМ</H5>
+                        <Descript>Одностраничный лендинг дизайнерского агенства.
+                        Имеется десктопная и мобильная версия. Так же содержит слайдер,
                         написанный на ванильном JavaScript.</Descript>
                         </DescriptBlock>
                     </LinkContayner>

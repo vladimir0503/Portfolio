@@ -10,12 +10,22 @@ const ContactsWrapper = styled.div`
     height: 612px;
     padding-top: 50px;
     background: #2f2f2f;
+    @media screen and (max-width: 1300px) {
+        height: 873px;
+    }
 `;
 
 const ContactsContent = styled.div`
     display: flex;
     width: 960px;
     margin: 0 auto;
+    @media screen and (max-width: 1300px) {
+        flex-direction: column;
+        width: 550px;
+    }
+    @media screen and (max-width: 500px) {
+        width: 300px;
+    }
 `;
 
 const H5 = styled.h5`
@@ -23,12 +33,19 @@ const H5 = styled.h5`
     font-weight: 300;
     margin-right: 64px;
     margin-bottom: 39px;
+    @media screen and (max-width: 1300px) {
+        margin-top: 0;
+        margin-bottom: 14px;
+    }
 `;
 
 const ContactInfo = styled.div`
     color: white;
     width: 156px;
     margin-right: 120px;
+    @media screen and (max-width: 1300px) {
+        margin-bottom: 21px;
+    }
 `;
 
 const Span = styled.span`
@@ -101,6 +118,9 @@ const Input = styled.input`
     :focus {
         box-shadow: 0px 0px 5px 3px #1bb899; 
     }
+    @media screen and (max-width: 500px) {
+        width: 274px;
+    }
 `;
 
 const TextArea = styled.textarea`
@@ -116,6 +136,9 @@ const TextArea = styled.textarea`
     }
     :focus {
         box-shadow: 0px 0px 5px 3px #1bb899; 
+    }
+    @media screen and (max-width: 500px) {
+        width: 274px;
     }
 `;
 
@@ -135,6 +158,9 @@ const SendBtn = styled.button`
     cursor: pointer;
     :hover {
         background: #23c8b1;
+    }
+    @media screen and (max-width: 500px) {
+        margin: 0 auto;
     }
 `;
 
@@ -180,17 +206,17 @@ const Loader = styled.div`
 class Contacts extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            feedback: '', 
-            name: '', 
+        this.state = {
+            feedback: '',
+            name: '',
             email: '',
             info: null,
             btnName: 'Отправить сообщение',
             btnDisabled: false
         };
 
-	    this.handleChange = this.handleChange.bind(this);
-	    this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(e) {
@@ -202,46 +228,52 @@ class Contacts extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        console.log('КНОПКА РАБОТАЕТ')
-
         const formData = [
             this.state.feedback,
             this.state.email,
-            this.state.info
+            this.state.name
         ];
 
+        const emailTemplate = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
+        let result = emailTemplate.test(formData[1]);
+
         for (let i = 0; i < formData.length; i++) {
-            if(formData[i] === '') {
+            if (formData[i] === '') {
                 this.setState({
-                    info: <ErrorInfo onClick={() => {this.setState({ info: null })}}>Заполненны не все поля!</ErrorInfo>
+                    info: <ErrorInfo onClick={() => { this.setState({ info: null }) }}>Заполненны не все поля!</ErrorInfo>
+                });
+                return;
+            } else if (result === false) {
+                this.setState({
+                    info: <ErrorInfo onClick={() => { this.setState({ info: null }) }}>Не корректный email!</ErrorInfo>
                 });
                 return;
             }
         }
 
-        this.setState({ 
+        this.setState({
             btnName: <Loader />,
             btnDisabled: true
         })
 
         const serviseId = 'my_mail';
         const templateId = 'template_vCNglM1Q';
-        const data = {message_html: this.state.feedback, from_name: this.state.name, reply_to: this.state.email};
+        const data = { message_html: this.state.feedback, from_name: this.state.name, reply_to: this.state.email };
         const userId = 'user_RstMCmmr6oqQJ3543ikzu';
-        
+
         window.emailjs.send(serviseId, templateId, data, userId)
-        .then(res => {
-            console.log(res, 'Сообщение успешно отправленно!')
-            this.setState({
-                feedback: '', 
-                name: '', 
-                email: '',
-                info: <SuccesInfo onClick={() => {this.setState({ info: null })}}>Сообщение отправленно.</SuccesInfo>,
-                btnName: 'Отправить сообщение',
-                btnDisabled: false
+            .then(res => {
+                console.log(res, 'Сообщение успешно отправленно!')
+                this.setState({
+                    feedback: '',
+                    name: '',
+                    email: '',
+                    info: <SuccesInfo onClick={() => { this.setState({ info: null }) }}>Сообщение отправленно.</SuccesInfo>,
+                    btnName: 'Отправить сообщение',
+                    btnDisabled: false
+                })
             })
-        })
-        .catch(err => {console.log(err, 'Ошибка отправки!')})
+            .catch(err => { console.log(err, 'Ошибка отправки!') })
     }
 
     render() {

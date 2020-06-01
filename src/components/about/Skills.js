@@ -10,6 +10,10 @@ const SkillsWrapper = styled.div`
     background: #2c3e50;
     width: 100vw;
     height: 257px;
+    @media screen and (max-width: 1300px) {
+        height: 748px;
+        align-items: normal;
+    }
 `;
 
 const Content = styled.div`
@@ -18,6 +22,14 @@ const Content = styled.div`
     margin: 0 auto;
     width: 960px;
     height: 182px;
+    @media screen and (max-width: 1300px) {
+        margin-top: 51px;
+        display: block;
+        width: 504px;
+    }
+    @media screen and (max-width: 500px) {
+        width: 298px;
+    }
 `;
 
 const H5 = styled.h5`
@@ -36,9 +48,16 @@ const SkillsContayner = styled.div`
     display: flex;
     justify-content: space-between;
     width: 700px;
+    @media screen and (max-width: 1300px) {
+        flex-direction: column;
+        width: 151px;
+        margin: 0 auto;
+    }
 `;
 
-const SkillDiv = styled.div``;
+const SkillDiv = styled.div`
+    width: 151px;
+`;
 
 const Skills = () => {
     return (

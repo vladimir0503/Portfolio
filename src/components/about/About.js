@@ -17,6 +17,7 @@ const NameWrapper = styled.div`
 const NameBlock = styled.div`
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
 `;
 
 const Name = styled.h1`
@@ -25,6 +26,10 @@ const Name = styled.h1`
     color: white;
     font-family: 'Open Sans Condensed';
     font-weight: 300;
+    @media screen and (max-width: 1300px) {
+        font-size: 68px;
+        text-align: center;
+    }
 `;
 
 const Mail = styled.h3`
@@ -32,6 +37,10 @@ const Mail = styled.h3`
     color: white;
     font-weight: 300;
     margin-left: 94px;
+    @media screen and (max-width: 1300px) {
+        margin-left: 0px;
+        text-align: center;
+    }
 `;
 
 const AboutBlock = styled.div`
@@ -47,6 +56,14 @@ const AboutContent = styled.div`
     justify-content: space-between;
     width: 960px;
     margin: 0 auto;
+    @media screen and (max-width: 1300px) {
+        flex-direction: column;
+        width: 500px;
+    }
+    @media screen and (max-width: 500px) {
+        flex-direction: column;
+        width: 300px;
+    }
 `;
 
 const H5 = styled.h5`
@@ -64,6 +81,13 @@ const P = styled.p`
     font-weight: 300;
     font-size: 16px;
     width: 600px;
+    @media screen and (max-width: 1300px) {
+        width: 500px;
+    }
+    @media screen and (max-width: 500px) {
+        flex-direction: column;
+        width: 300px;
+    }
 `;
 
 const Span = styled.span`
@@ -77,9 +101,20 @@ const Link = styled.a`
 
 const EducationBlock = styled(AboutBlock)`
     background: transparent;
+    @media screen and (max-width: 1300px) {
+        height: 368px;
+    }
 `;
 
-const EducationContent = styled(AboutContent)``;
+const EducationContent = styled(AboutContent)`
+    @media screen and (max-width: 1300px) {
+        width: 500px;
+    }
+    @media screen and (max-width: 500px) {
+        flex-direction: column;
+        width: 300px;
+    }
+`;
 
 const EducationH5 = styled(H5)`
     color: #333;
@@ -91,16 +126,20 @@ const EdcationP = styled(P)`
     margin-right: 97px;
 `;
 
-const NameContayner = styled.div`
-    display: flex;
-`;
-
 const NameDiv = styled.div`
     flex-direction: column;
 `;
 
 const DescrDiv = styled.div`
     display: flex;
+    @media screen and (max-width: 1300px) {
+        flex-direction: column;
+        width: 500px;
+    }
+    @media screen and (max-width: 500px) {
+        flex-direction: column;
+        width: 300px;
+    }
 `;
 
 const Ending = styled(EducationH5)`
@@ -119,38 +158,36 @@ const About = ({ about, resume }) => {
             <AboutBlock>
                 <AboutContent>
                     <H5>ОБО МНЕ</H5>
-                    <P>Немного о себе. Всю жизнь чувствовал, что занимался не тем. Всегда привлекала
-                    IT сфера, а именно веб-разработка. Решил кардинально сменить род
-                    деятельности. Имею опыт адаптивной верскти и разработки SPA-приложений на React. </P>
+                    <P>Немного о себе. Всегда привлекала IT сфера, а именно веб-разработка.
+                    Решил кардинально сменить род деятельности. Имею опыт адаптивной верскти
+                    и разработки SPA-приложений на React. </P>
                     <Link href='https://yadi.sk/i/PCBnjwZ-1SN9BQ' target='_blank' rel="nofollow noopener"><H5>СКАЧАТЬ РЕЗЮМЕ</H5></Link>
                 </AboutContent>
             </AboutBlock>
             <EducationBlock id={resume}>
                 <EducationContent>
-                    <NameContayner>
-                        <EducationH5>ОБРАЗОВАНИЕ</EducationH5>
-                        <NameDiv>
-                            <DescrDiv>
-                                <div>
-                                    <EdcationP><Span>Бакалавр</Span><br></br>
+                    <EducationH5>ОБРАЗОВАНИЕ</EducationH5>
+                    <NameDiv>
+                        <DescrDiv>
+                            <div>
+                                <EdcationP><Span>Бакалавр</Span><br></br>
                                     Московский автомобильно-дорожный государственный<br></br>
                                     технический университет (МАДИ)</EdcationP>
-                                </div>
-                                <div>
-                                    <Ending>ОКОНЧАНИЕ В ИЮНЕ 2016</Ending>
-                                </div>
-                            </DescrDiv>
-                            <DescrDiv>
-                                <div>
-                                    <EdcationP><Span>Front-end разработчик</Span><br></br>
+                            </div>
+                            <div>
+                                <Ending>ОКОНЧАНИЕ В ИЮНЕ 2016</Ending>
+                            </div>
+                        </DescrDiv>
+                        <DescrDiv>
+                            <div>
+                                <EdcationP><Span>Front-end разработчик</Span><br></br>
                                     Школа по работе с данными SkillFactory</EdcationP>
-                                </div>
-                                <div>
-                                    <Ending>В МАЕ 2020</Ending>
-                                </div>
-                            </DescrDiv>
-                        </NameDiv>
-                    </NameContayner>
+                            </div>
+                            <div>
+                                <Ending>В МАЕ 2020</Ending>
+                            </div>
+                        </DescrDiv>
+                    </NameDiv>
                 </EducationContent>
             </EducationBlock>
             <Skills />
