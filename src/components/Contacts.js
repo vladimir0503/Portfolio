@@ -2,12 +2,13 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import vk from './images/vk.png';
 import inst from './images/inst.png';
-import lader from './images/loader.png'
+import lader from './images/loader.png';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const ContactsWrapper = styled.div`
     display: flex;
     width: 100vw;
-    height: 612px;
+    height: 509px;
     padding-top: 50px;
     background: #2f2f2f;
     @media screen and (max-width: 1300px) {
@@ -35,7 +36,7 @@ const H5 = styled.h5`
     margin-bottom: 39px;
     @media screen and (max-width: 1300px) {
         margin-top: 0;
-        margin-bottom: 14px;
+        margin-bottom: 19px;
     }
 `;
 
@@ -184,6 +185,9 @@ const SuccesInfo = styled(P)`
     position: absolute;
     margin-top: -32px;
     animation: ${Anim} 2s linear 0s 1 normal;
+    @media screen and (max-width: 1300px) {
+        margin-top: -24px;
+    }
 `;
 
 const ErrorInfo = styled(SuccesInfo)`
@@ -281,40 +285,51 @@ class Contacts extends React.Component {
         return (
             <ContactsWrapper id={this.props.id}>
                 <ContactsContent>
-                    <H5>КОНТАКТЫ</H5>
-                    <ContactInfo>
-                        <P><Span>Email</Span><br></br>vovan0503@mail.ru</P>
-                        <P><Span>Адрес</Span><br></br>РФ, г. Москва, бульвар Яна Райниса, д.18, корп. 1, под. 2, кв. 67</P>
-                        <P><Span>Телефон</Span><br></br>+7 999 677 05 46</P>
-                        <P><Span>Соцсети</Span></P>
-                        <LinkDiv>
-                            <a href='https://instagram.com/vovan_bezobrazov?igshid=1veejg6a2ber4' target='_blank' rel='noopener noreferrer'>
-                                <WrapperLink><ImgDiv><img src={inst} alt='instagramm' width='20px' heigth='20px' /></ImgDiv></WrapperLink>
-                            </a>
-                            <a href='https://vk.com/id142608416' target='_blank' rel='noopener noreferrer'>
-                                <WrapperLink><ImgDiv><img src={vk} alt='vk' width='20px' heigth='20px' /></ImgDiv></WrapperLink>
-                            </a>
-                        </LinkDiv>
-                    </ContactInfo>
-                    <FormWrapper>
-                        <H5>ФОРМА ОБРАТНОЙ СВЯЗИ</H5>
-                        {this.state.info}
-                        <Form onSubmit={this.handleSubmit}>
-                            <InputDiv>
-                                <Label>Ваше имя</Label>
-                                <Input type='text' name='name' placeholder='Ваше имя' value={this.state.name} onChange={this.handleChange}></Input>
-                            </InputDiv>
-                            <InputDiv>
-                                <Label>Ваш email</Label>
-                                <Input type='text' name='email' placeholder='Ваш email' value={this.state.email} onChange={this.handleChange}></Input>
-                            </InputDiv>
-                            <InputDiv>
-                                <Label>Ваше сообщение</Label>
-                                <TextArea name='feedback' placeholder='Ваше сообщение' value={this.state.feedback} onChange={this.handleChange}></TextArea>
-                            </InputDiv>
-                            <SendBtn disabled={this.state.btnDisabled} type='submit'>{this.state.btnName}</SendBtn>
-                        </Form>
-                    </FormWrapper>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true} >
+                        <H5>КОНТАКТЫ</H5>
+                    </ScrollAnimation>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true}
+                        delay={500} >
+                        <ContactInfo>
+                            <P><Span>Email</Span><br></br>vovan0503@mail.ru</P>
+                            <P><Span>Адрес</Span><br></br>РФ, г. Москва, бульвар Яна Райниса, д.18, корп. 1, под. 2, кв. 67</P>
+                            <P><Span>Телефон</Span><br></br>+7 999 677 05 46</P>
+                            <P><Span>Соцсети</Span></P>
+                            <LinkDiv>
+                                <a href='https://instagram.com/vovan_bezobrazov?igshid=1veejg6a2ber4' target='_blank' rel='noopener noreferrer'>
+                                    <WrapperLink><ImgDiv><img src={inst} alt='instagramm' width='20px' heigth='20px' /></ImgDiv></WrapperLink>
+                                </a>
+                                <a href='https://vk.com/id142608416' target='_blank' rel='noopener noreferrer'>
+                                    <WrapperLink><ImgDiv><img src={vk} alt='vk' width='20px' heigth='20px' /></ImgDiv></WrapperLink>
+                                </a>
+                            </LinkDiv>
+                        </ContactInfo>
+                    </ScrollAnimation>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true}
+                        delay={1000} >
+                        <FormWrapper>
+                            <H5>ФОРМА ОБРАТНОЙ СВЯЗИ</H5>
+                            {this.state.info}
+                            <Form onSubmit={this.handleSubmit}>
+                                <InputDiv>
+                                    <Label>Ваше имя</Label>
+                                    <Input type='text' name='name' placeholder='Ваше имя' value={this.state.name} onChange={this.handleChange}></Input>
+                                </InputDiv>
+                                <InputDiv>
+                                    <Label>Ваш email</Label>
+                                    <Input type='text' name='email' placeholder='Ваш email' value={this.state.email} onChange={this.handleChange}></Input>
+                                </InputDiv>
+                                <InputDiv>
+                                    <Label>Ваше сообщение</Label>
+                                    <TextArea name='feedback' placeholder='Ваше сообщение' value={this.state.feedback} onChange={this.handleChange}></TextArea>
+                                </InputDiv>
+                                <SendBtn disabled={this.state.btnDisabled} type='submit'>{this.state.btnName}</SendBtn>
+                            </Form>
+                        </FormWrapper>
+                    </ScrollAnimation>
                 </ContactsContent>
             </ContactsWrapper>
         )

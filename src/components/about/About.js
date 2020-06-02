@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import about from '../images/about.jpeg';
 import Skills from './Skills';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const NameWrapper = styled.div`
     display: flex;
@@ -151,41 +152,80 @@ const About = ({ about, resume }) => {
         <>
             <NameWrapper id={about}>
                 <NameBlock>
-                    <Name>Владимир Безобразов</Name>
-                    <Mail>Front-end разоработчик | vovan0503@mail.ru</Mail>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true}
+                        duration={2} >
+                        <Name>Владимир Безобразов</Name>
+                    </ScrollAnimation>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true}
+                        duration={2}
+                        delay={1000} >
+                        <Mail>Front-end разоработчик | vovan0503@mail.ru</Mail>
+                    </ScrollAnimation>
                 </NameBlock>
             </NameWrapper>
             <AboutBlock>
                 <AboutContent>
-                    <H5>ОБО МНЕ</H5>
-                    <P>Немного о себе. Всегда привлекала IT сфера, а именно веб-разработка.
-                    Решил кардинально сменить род деятельности. Имею опыт адаптивной верскти
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true} >
+                        <H5>ОБО МНЕ</H5>
+                    </ScrollAnimation>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true}
+                        delay={500} >
+                        <P>Немного о себе. Всегда привлекала IT сфера, а именно веб-разработка.
+                        Решил кардинально сменить род деятельности. Имею опыт адаптивной верскти
                     и разработки SPA-приложений на React. </P>
-                    <Link href='https://yadi.sk/i/PCBnjwZ-1SN9BQ' target='_blank' rel="nofollow noopener"><H5>СКАЧАТЬ РЕЗЮМЕ</H5></Link>
+                    </ScrollAnimation>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true}
+                        delay={1000} >
+                        <Link href='https://yadi.sk/i/Y5p5jh1pGJJBwg' target='_blank' rel="nofollow noopener"><H5>СКАЧАТЬ РЕЗЮМЕ</H5></Link>
+                    </ScrollAnimation>
                 </AboutContent>
             </AboutBlock>
             <EducationBlock id={resume}>
                 <EducationContent>
-                    <EducationH5>ОБРАЗОВАНИЕ</EducationH5>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true} >
+                        <EducationH5>ОБРАЗОВАНИЕ</EducationH5>
+                    </ScrollAnimation>
                     <NameDiv>
                         <DescrDiv>
-                            <div>
-                                <EdcationP><Span>Бакалавр</Span><br></br>
+                            <ScrollAnimation animateIn='fadeIn'
+                                animateOnce={true}
+                                delay={500} >
+                                <div>
+                                    <EdcationP><Span>Бакалавр</Span><br></br>
                                     Московский автомобильно-дорожный государственный<br></br>
                                     технический университет (МАДИ)</EdcationP>
-                            </div>
-                            <div>
-                                <Ending>ОКОНЧАНИЕ В ИЮНЕ 2016</Ending>
-                            </div>
+                                </div>
+                            </ScrollAnimation>
+                            <ScrollAnimation animateIn='fadeIn'
+                                animateOnce={true}
+                                delay={1000} >
+                                <div>
+                                    <Ending>ОКОНЧАНИЕ В ИЮНЕ 2016</Ending>
+                                </div>
+                            </ScrollAnimation>
                         </DescrDiv>
                         <DescrDiv>
-                            <div>
-                                <EdcationP><Span>Front-end разработчик</Span><br></br>
+                            <ScrollAnimation animateIn='fadeIn'
+                                animateOnce={true}
+                                delay={500} >
+                                <div>
+                                    <EdcationP><Span>Front-end разработчик</Span><br></br>
                                     Школа по работе с данными SkillFactory</EdcationP>
-                            </div>
-                            <div>
-                                <Ending>В МАЕ 2020</Ending>
-                            </div>
+                                </div>
+                            </ScrollAnimation>
+                            <ScrollAnimation animateIn='fadeIn'
+                                animateOnce={true}
+                                delay={1000} >
+                                <div>
+                                    <Ending>В МАЕ 2020</Ending>
+                                </div>
+                            </ScrollAnimation>
                         </DescrDiv>
                     </NameDiv>
                 </EducationContent>

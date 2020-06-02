@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import html_css from '../images/html_css.png';
 import JS from '../images/JS.png';
 import react from '../images/react.png';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const SkillsWrapper = styled.div`
     display: flex;
@@ -63,20 +64,35 @@ const Skills = () => {
     return (
         <SkillsWrapper>
             <Content>
-                <H5>НАВЫКИ</H5>
+                <ScrollAnimation animateIn='fadeIn'
+                    animateOnce={true} >
+                    <H5>НАВЫКИ</H5>
+                </ScrollAnimation>
                 <SkillsContayner>
-                    <SkillDiv>
-                        <img src={html_css} alt='html_css'/>
-                        <P>HTML/CSS</P>
-                    </SkillDiv>
-                    <SkillDiv>
-                        <img src={JS} alt='JS'/>
-                        <P>Java Script</P>
-                    </SkillDiv>
-                    <SkillDiv>
-                        <img src={react} alt='React'/>
-                        <P>React.JS</P>
-                    </SkillDiv>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true}
+                        delay={500} >
+                        <SkillDiv>
+                            <img src={html_css} alt='html_css' />
+                            <P>HTML/CSS</P>
+                        </SkillDiv>
+                    </ScrollAnimation>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true}
+                        delay={1000} >
+                        <SkillDiv>
+                            <img src={JS} alt='JS' />
+                            <P>Java Script</P>
+                        </SkillDiv>
+                    </ScrollAnimation>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true}
+                        delay={1500} >
+                        <SkillDiv>
+                            <img src={react} alt='React' />
+                            <P>React.JS</P>
+                        </SkillDiv>
+                    </ScrollAnimation>
                 </SkillsContayner>
             </Content>
         </SkillsWrapper>

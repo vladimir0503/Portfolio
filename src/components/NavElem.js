@@ -17,7 +17,7 @@ const Div = styled.div`
 const NavElem = ( {img} ) => {
     return (
         <Div>
-            <img src={img} alt='person' width='50px' height='50px' />
+            <img src={img} alt='person' width='35px' height='35px' />
         </Div>
     )
 }
