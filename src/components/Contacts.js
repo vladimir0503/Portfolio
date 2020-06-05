@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import vk from './images/vk.png';
 import inst from './images/inst.png';
@@ -207,35 +207,22 @@ const Loader = styled.div`
     animation: ${loaderAnim} 1s ease 0s infinite normal;
 `;
 
-class Contacts extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            feedback: '',
-            name: '',
-            email: '',
-            info: null,
-            btnName: 'Отправить сообщение',
-            btnDisabled: false
-        };
+const Contacts = ({ id }) => {
+     
+    const [feedback, setFeedback] = useState('');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [info, setInfo] = useState(null);
+    const [btnName, setBtnName] = useState('Отправить сообщение');
+    const [btnDisabled, setBtnDisabled] = useState(false);
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleChange(e) {
-        const name = e.target.name;
-        const value = e.target.value;
-        this.setState({ [name]: value });
-    }
-
-    handleSubmit(e) {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         const formData = [
-            this.state.feedback,
-            this.state.email,
-            this.state.name
+            feedback,
+            email,
+            name
         ];
 
         const emailTemplate = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
@@ -243,97 +230,91 @@ class Contacts extends React.Component {
 
         for (let i = 0; i < formData.length; i++) {
             if (formData[i] === '') {
-                this.setState({
-                    info: <ErrorInfo onClick={() => { this.setState({ info: null }) }}>Заполненны не все поля!</ErrorInfo>
-                });
+                setInfo(
+                    <ErrorInfo onClick={() => setInfo(null)}>Заполненны не все поля!</ErrorInfo>
+                );
                 return;
             } else if (result === false) {
-                this.setState({
-                    info: <ErrorInfo onClick={() => { this.setState({ info: null }) }}>Не корректный email!</ErrorInfo>
-                });
+                setInfo(
+                    <ErrorInfo onClick={() => setInfo(null)}>Не корректный email!</ErrorInfo>
+                );
                 return;
             }
         }
 
-        this.setState({
-            btnName: <Loader />,
-            btnDisabled: true
-        })
+        setBtnName(<Loader />);
+        setBtnDisabled(true);
 
         const serviseId = 'my_mail';
         const templateId = 'template_vCNglM1Q';
-        const data = { message_html: this.state.feedback, from_name: this.state.name, reply_to: this.state.email };
+        const data = { message_html: feedback, from_name: name, reply_to: email };
         const userId = 'user_RstMCmmr6oqQJ3543ikzu';
 
         window.emailjs.send(serviseId, templateId, data, userId)
             .then(res => {
                 console.log(res, 'Сообщение успешно отправленно!')
-                this.setState({
-                    feedback: '',
-                    name: '',
-                    email: '',
-                    info: <SuccesInfo onClick={() => { this.setState({ info: null }) }}>Сообщение отправленно.</SuccesInfo>,
-                    btnName: 'Отправить сообщение',
-                    btnDisabled: false
-                })
+                setFeedback('');
+                setName('');
+                setEmail('');
+                setInfo(<SuccesInfo onClick={() => setInfo(null)}>Сообщение отправленно.</SuccesInfo>);
+                setBtnName('Отправить сообщение');
+                setBtnDisabled(false);
             })
             .catch(err => { console.log(err, 'Ошибка отправки!') })
     }
 
-    render() {
+    return (
+        <ContactsWrapper id={id}>
+            <ContactsContent>
+                <ScrollAnimation animateIn='fadeIn'
+                    animateOnce={true} >
+                    <H5>КОНТАКТЫ</H5>
+                </ScrollAnimation>
+                <ScrollAnimation animateIn='fadeIn'
+                    animateOnce={true}
+                    delay={500} >
+                    <ContactInfo>
+                        <P><Span>Email</Span><br></br>vovan0503@mail.ru</P>
+                        <P><Span>Адрес</Span><br></br>РФ, г. Москва, бульвар Яна Райниса, д.18, корп. 1, под. 2, кв. 67</P>
+                        <P><Span>Телефон</Span><br></br>+7 999 677 05 46</P>
+                        <P><Span>Соцсети</Span></P>
+                        <LinkDiv>
+                            <a href='https://instagram.com/vovan_bezobrazov?igshid=1veejg6a2ber4' target='_blank' rel='noopener noreferrer'>
+                                <WrapperLink><ImgDiv><img src={inst} alt='instagramm' width='20px' heigth='20px' /></ImgDiv></WrapperLink>
+                            </a>
+                            <a href='https://vk.com/id142608416' target='_blank' rel='noopener noreferrer'>
+                                <WrapperLink><ImgDiv><img src={vk} alt='vk' width='20px' heigth='20px' /></ImgDiv></WrapperLink>
+                            </a>
+                        </LinkDiv>
+                    </ContactInfo>
+                </ScrollAnimation>
+                <ScrollAnimation animateIn='fadeIn'
+                    animateOnce={true}
+                    delay={1000} >
+                    <FormWrapper>
+                        <H5>ФОРМА ОБРАТНОЙ СВЯЗИ</H5>
+                        {info}
+                        <Form onSubmit={handleSubmit}>
+                            <InputDiv>
+                                <Label>Ваше имя</Label>
+                                <Input type='text' name='name' placeholder='Ваше имя' value={name} onChange={e => setName(e.target.value)}></Input>
+                            </InputDiv>
+                            <InputDiv>
+                                <Label>Ваш email</Label>
+                                <Input type='text' name='email' placeholder='Ваш email' value={email} onChange={e => setEmail(e.target.value)}></Input>
+                            </InputDiv>
+                            <InputDiv>
+                                <Label>Ваше сообщение</Label>
+                                <TextArea name='feedback' placeholder='Ваше сообщение' value={feedback} onChange={e => setFeedback(e.target.value)}></TextArea>
+                            </InputDiv>
+                            <SendBtn disabled={btnDisabled} type='submit'>{btnName}</SendBtn>
+                        </Form>
+                    </FormWrapper>
+                </ScrollAnimation>
+            </ContactsContent>
+        </ContactsWrapper>
+    )
 
-        return (
-            <ContactsWrapper id={this.props.id}>
-                <ContactsContent>
-                    <ScrollAnimation animateIn='fadeIn'
-                        animateOnce={true} >
-                        <H5>КОНТАКТЫ</H5>
-                    </ScrollAnimation>
-                    <ScrollAnimation animateIn='fadeIn'
-                        animateOnce={true}
-                        delay={500} >
-                        <ContactInfo>
-                            <P><Span>Email</Span><br></br>vovan0503@mail.ru</P>
-                            <P><Span>Адрес</Span><br></br>РФ, г. Москва, бульвар Яна Райниса, д.18, корп. 1, под. 2, кв. 67</P>
-                            <P><Span>Телефон</Span><br></br>+7 999 677 05 46</P>
-                            <P><Span>Соцсети</Span></P>
-                            <LinkDiv>
-                                <a href='https://instagram.com/vovan_bezobrazov?igshid=1veejg6a2ber4' target='_blank' rel='noopener noreferrer'>
-                                    <WrapperLink><ImgDiv><img src={inst} alt='instagramm' width='20px' heigth='20px' /></ImgDiv></WrapperLink>
-                                </a>
-                                <a href='https://vk.com/id142608416' target='_blank' rel='noopener noreferrer'>
-                                    <WrapperLink><ImgDiv><img src={vk} alt='vk' width='20px' heigth='20px' /></ImgDiv></WrapperLink>
-                                </a>
-                            </LinkDiv>
-                        </ContactInfo>
-                    </ScrollAnimation>
-                    <ScrollAnimation animateIn='fadeIn'
-                        animateOnce={true}
-                        delay={1000} >
-                        <FormWrapper>
-                            <H5>ФОРМА ОБРАТНОЙ СВЯЗИ</H5>
-                            {this.state.info}
-                            <Form onSubmit={this.handleSubmit}>
-                                <InputDiv>
-                                    <Label>Ваше имя</Label>
-                                    <Input type='text' name='name' placeholder='Ваше имя' value={this.state.name} onChange={this.handleChange}></Input>
-                                </InputDiv>
-                                <InputDiv>
-                                    <Label>Ваш email</Label>
-                                    <Input type='text' name='email' placeholder='Ваш email' value={this.state.email} onChange={this.handleChange}></Input>
-                                </InputDiv>
-                                <InputDiv>
-                                    <Label>Ваше сообщение</Label>
-                                    <TextArea name='feedback' placeholder='Ваше сообщение' value={this.state.feedback} onChange={this.handleChange}></TextArea>
-                                </InputDiv>
-                                <SendBtn disabled={this.state.btnDisabled} type='submit'>{this.state.btnName}</SendBtn>
-                            </Form>
-                        </FormWrapper>
-                    </ScrollAnimation>
-                </ContactsContent>
-            </ContactsWrapper>
-        )
-    }
 }
 
 export default Contacts 

@@ -28,26 +28,25 @@ const NawDiv = styled.nav`
     margin: 0 auto;
 `;
 
-class Main extends React.Component {
+const Main = () => {
 
-    render() {
-        return (
-            <>
-                <Header>
-                    <NawDiv>
-                        <Link to='about' spy={true} smooth={true} offset={-70} duration={800}><NavElem img={person} /></Link>
-                        <Link to='resume' spy={true} smooth={true} offset={-70} duration={800}><NavElem img={resume} /></Link>
-                        <Link to='works' spy={true} smooth={true} offset={-70} duration={800}><NavElem img={works} /></Link>
-                        <Link to='contacts' spy={true} smooth={true} offset={-70} duration={800}><NavElem img={contacts} /></Link>
-                    </NawDiv>
-                </Header>
-                <About about='about' resume='resume'/>
-                <Works id='works'/>
-                <Contacts id='contacts' />
-                <Footer />
-            </>
-        )
-    }
+    return (
+        <>
+            <Header>
+                <NawDiv>
+                    <Link to='about' spy={true} smooth={true} offset={-70} duration={800}><NavElem img={person} /></Link>
+                    <Link to='resume' spy={true} smooth={true} offset={-70} duration={800}><NavElem img={resume} /></Link>
+                    <Link to='works' spy={true} smooth={true} offset={-70} duration={800}><NavElem img={works} /></Link>
+                    <Link to='contacts' spy={true} smooth={true} offset={-70} duration={800}><NavElem img={contacts} /></Link>
+                </NawDiv>
+            </Header>
+            <About about='about' resume='resume' />
+            <Works id='works' />
+            <Contacts id='contacts' />
+            <Footer />
+        </>
+    )
+
 }
 
 export default Main

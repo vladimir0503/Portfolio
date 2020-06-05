@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import landing from './images/landing.jpg';
 import canban from './images/canban.jpg';
@@ -64,13 +64,6 @@ const EyeBlockOut = styled.div`
     @media screen and (max-width: 1300px) {
         display: none;
     }
-`;
-
-const EyeBlockInitState = styled.div`
-    width: 550px;
-    height: 416px;
-    background: transparent;
-    opacity: 0;
 `;
 
 const Content = styled.div`
@@ -159,109 +152,102 @@ const ThreeWorkWrapper = styled(FirstWorkWrapper)`
     background-image: url(${klient});
 `;
 
-class Works extends React.Component {
+const Works = ({ id }) => {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            firstWork: EyeBlockInitState,
-            twoWork: EyeBlockInitState,
-            threeWork: EyeBlockInitState,
-        }
-    }
+    const [firstWorkInit, setFirstWorkkInit] = useState(false);
+    const [twoWorkInit, setTwoWorkkInit] = useState(false);
+    const [threWorkInit, setThreeWorkkInit] = useState(false);
 
-    render() {
+    const FirstWork = firstWorkInit ? EyeBlockIn : EyeBlockOut;
+    const TwoWork = twoWorkInit ? EyeBlockIn : EyeBlockOut;
+    const ThreeWork = threWorkInit ? EyeBlockIn : EyeBlockOut;
 
-        const FirstWork = this.state.firstWork;
-        const TwoWork = this.state.twoWork;
-        const ThreeWork = this.state.threeWork;
-
-        return (
-            <Content>
-                <ScrollAnimation animateIn='fadeIn'
-                    animateOnce={true} >
-                    <H5 id={this.props.id}>ПОРТФОЛИО</H5>
-                </ScrollAnimation>
-                <LinkWrapper>
-                    <LinkContayner>
-                        <ScrollAnimation animateIn='fadeIn'
-                            animateOnce={true}
-                            delay={500} >
-                            <a href='https://vladimir0503.github.io/slider-in-landing-page/' target='_blank' rel='noopener noreferrer'>
-                                <FirstWorkWrapper>
-                                    <FirstWork onMouseOver={() => this.setState({ firstWork: EyeBlockIn })}
-                                        onMouseOut={() => this.setState({ firstWork: EyeBlockOut })}>
-                                        <img src={eye} alt='eye' />
-                                    </FirstWork>
-                                </FirstWorkWrapper>
-                            </a>
-                        </ScrollAnimation>
-                        <ScrollAnimation animateIn='fadeIn'
-                            animateOnce={true}
-                            delay={1000} >
-                            <DescriptBlock>
-                                <H5>ЛЕНДИНГ С АНИМИРОВАННЫМ СЛАЙДЕРОМ</H5>
-                                <Descript>Одностраничный лендинг дизайнерского агенства.
-                                Имеется десктопная и мобильная версия. Так же содержит слайдер,
+    return (
+        <Content>
+            <ScrollAnimation animateIn='fadeIn'
+                animateOnce={true} >
+                <H5 id={id}>ПОРТФОЛИО</H5>
+            </ScrollAnimation>
+            <LinkWrapper>
+                <LinkContayner>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true}
+                        delay={500} >
+                        <a href='https://vladimir0503.github.io/slider-in-landing-page/' target='_blank' rel='noopener noreferrer'>
+                            <FirstWorkWrapper>
+                                <FirstWork onMouseOver={() => setFirstWorkkInit(true)}
+                                    onMouseOut={() => setFirstWorkkInit(false)}>
+                                    <img src={eye} alt='eye' />
+                                </FirstWork>
+                            </FirstWorkWrapper>
+                        </a>
+                    </ScrollAnimation>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true}
+                        delay={1000} >
+                        <DescriptBlock>
+                            <H5>ЛЕНДИНГ С АНИМИРОВАННЫМ СЛАЙДЕРОМ</H5>
+                            <Descript>Одностраничный лендинг дизайнерского агенства.
+                            Имеется десктопная и мобильная версия. Так же содержит слайдер,
                             написанный на ванильном JavaScript.</Descript>
-                            </DescriptBlock>
-                        </ScrollAnimation>
-                    </LinkContayner>
-                    <LinkContayner>
-                        <ScrollAnimation animateIn='fadeIn'
-                            animateOnce={true}
-                            delay={500} >
-                            <a href='https://vladimir0503.github.io/Kanban-board/' target='_blank' rel='noopener noreferrer'>
-                                <TwoWorkWrapper>
-                                    <TwoWork onMouseOver={() => this.setState({ twoWork: EyeBlockIn })}
-                                        onMouseOut={() => this.setState({ twoWork: EyeBlockOut })}>
-                                        <img src={eye} alt='eye' />
-                                    </TwoWork>
-                                </TwoWorkWrapper>
-                            </a>
-                        </ScrollAnimation>
-                        <ScrollAnimation animateIn='fadeIn'
-                            animateOnce={true}
-                            delay={1000} >
-                            <DescriptBlock>
-                                <H5>KANBAN-BOARD (КАНБАН-ДОСКА)</H5>
-                                <Descript>Канбан-доска - это популярный инструмент управления agile-проектами,
-                                с помощью которого можно наглядно представить задачи, ограничить объем
-                                незавершенной работы и добиться максимальной производительности
+                        </DescriptBlock>
+                    </ScrollAnimation>
+                </LinkContayner>
+                <LinkContayner>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true}
+                        delay={500} >
+                        <a href='https://vladimir0503.github.io/Kanban-board/' target='_blank' rel='noopener noreferrer'>
+                            <TwoWorkWrapper>
+                                <TwoWork onMouseOver={() => setTwoWorkkInit(true)}
+                                    onMouseOut={() => setTwoWorkkInit(false)}>
+                                    <img src={eye} alt='eye' />
+                                </TwoWork>
+                            </TwoWorkWrapper>
+                        </a>
+                    </ScrollAnimation>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true}
+                        delay={1000} >
+                        <DescriptBlock>
+                            <H5>KANBAN-BOARD (КАНБАН-ДОСКА)</H5>
+                            <Descript>Канбан-доска - это популярный инструмент управления agile-проектами,
+                            с помощью которого можно наглядно представить задачи, ограничить объем
+                            незавершенной работы и добиться максимальной производительности
                             (или скорости). Приложение написанно на фреймворке React.js</Descript>
-                            </DescriptBlock>
-                        </ScrollAnimation>
-                    </LinkContayner>
-                    <LinkContayner>
-                        <ScrollAnimation animateIn='fadeIn'
-                            animateOnce={true}
-                            delay={500} >
-                            <a href='https://vladimir0503.github.io/bike-accounting-client/' target='_blank' rel='noopener noreferrer'>
-                                <ThreeWorkWrapper>
-                                    <ThreeWork onMouseOver={() => this.setState({ threeWork: EyeBlockIn })}
-                                        onMouseOut={() => this.setState({ threeWork: EyeBlockOut })}>
-                                        <img src={eye} alt='eye' />
-                                    </ThreeWork>
-                                </ThreeWorkWrapper>
-                            </a>
-                        </ScrollAnimation>
-                        <ScrollAnimation animateIn='fadeIn'
-                            animateOnce={true}
-                            delay={1000} >
-                            <DescriptBlock>
-                                <H5>РЕАЛИЗАЦИЯ КЛИЕНТСКОЙ ЧАСТИ САЙТА</H5>
-                                <Descript>Известная компания, занимающаяся прокатом велосипедов в крупных
-                                городах России, испытывает проблемы с частой кражей их имущества (велосипедов).
-                                Как возможное решение проблемы, компания хочет вести учет этих случаев
-                                и отслеживать прогресс. Клиентская часть приложения написана полностью на
+                        </DescriptBlock>
+                    </ScrollAnimation>
+                </LinkContayner>
+                <LinkContayner>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true}
+                        delay={500} >
+                        <a href='https://vladimir0503.github.io/bike-accounting-client/' target='_blank' rel='noopener noreferrer'>
+                            <ThreeWorkWrapper>
+                                <ThreeWork onMouseOver={() => setThreeWorkkInit(true)}
+                                    onMouseOut={() => setThreeWorkkInit(false)}>
+                                    <img src={eye} alt='eye' />
+                                </ThreeWork>
+                            </ThreeWorkWrapper>
+                        </a>
+                    </ScrollAnimation>
+                    <ScrollAnimation animateIn='fadeIn'
+                        animateOnce={true}
+                        delay={1000} >
+                        <DescriptBlock>
+                            <H5>РЕАЛИЗАЦИЯ КЛИЕНТСКОЙ ЧАСТИ САЙТА</H5>
+                            <Descript>Известная компания, занимающаяся прокатом велосипедов в крупных
+                            городах России, испытывает проблемы с частой кражей их имущества (велосипедов).
+                            Как возможное решение проблемы, компания хочет вести учет этих случаев
+                            и отслеживать прогресс. Клиентская часть приложения написана полностью на
                             React.js. Для взаимодействия с API сервера использовалась библиотека Axios.</Descript>
-                            </DescriptBlock>
-                        </ScrollAnimation>
-                    </LinkContayner>
-                </LinkWrapper>
-            </Content>
-        )
-    }
+                        </DescriptBlock>
+                    </ScrollAnimation>
+                </LinkContayner>
+            </LinkWrapper>
+        </Content>
+    )
+
 }
 
 export default Works
