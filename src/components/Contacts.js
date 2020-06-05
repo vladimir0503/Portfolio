@@ -247,7 +247,7 @@ const Contacts = ({ id }) => {
         ];
 
         const emailTemplate = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
-        let result = emailTemplate.test(formData[1]);
+        let  result = emailTemplate.test(formData[1]);
 
         for (let i = 0; i < formData.length; i++) {
             if (formData[i] === '') {
@@ -321,7 +321,7 @@ const Contacts = ({ id }) => {
                     delay={500} >
                     <ContactInfo>
                         <P><Span>Email</Span><br></br>vovan0503@mail.ru</P>
-                        <P><Span>Адрес</Span><br></br>РФ, г. Москва, бульвар Яна Райниса, д.18, корп. 1, под. 2, кв. 67</P>
+                        <P><Span>Адрес</Span><br></br>РФ, г. Москва, бульвар Яна Райниса, д.18</P>
                         <P><Span>Телефон</Span><br></br>+7 999 677 05 46</P>
                         <P><Span>Соцсети</Span></P>
                         <LinkDiv>
