@@ -165,6 +165,10 @@ const SendBtn = styled.button`
     }
 `;
 
+const InitialInfo = styled.p`
+    display: none;
+`;
+
 const Anim = keyframes`
     0%{ -ms-transform: translateX(0); transform: translateX(0); }
     5%{ -ms-transform: translateX(-10px); transform: translateX(-10px); }
@@ -231,9 +235,9 @@ const Contacts = ({ id }) => {
     const [feedback, setFeedback] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [info, setInfo] = useState(null);
     const [btnName, setBtnName] = useState('Отправить сообщение');
     const [btnDisabled, setBtnDisabled] = useState(false);
+    const [info, setInfo] = useState({ infoStyle:  InitialInfo, infoText: ''})
 
     let timer = null;
 
@@ -251,16 +255,12 @@ const Contacts = ({ id }) => {
 
         for (let i = 0; i < formData.length; i++) {
             if (formData[i] === '') {
-                setInfo(
-                    <ErrorInfo>Заполненны не все поля!</ErrorInfo>
-                );
-                removeErrInf();
+                setInfo({ infoStyle: ErrorInfo,  infoText: 'Заполненны не все поля!'});
+                removeInf(HideErrorInfo, 'Заполненны не все поля!');
                 return;
             } else if (result === false) {
-                setInfo(
-                    <ErrorInfo>Не корректный email!</ErrorInfo>
-                );
-                removeEmailInf();
+                setInfo({ infoStyle: ErrorInfo,  infoText: 'Не корректный email!'});
+                removeInf(HideErrorInfo, 'Не корректный email!');
                 return;
             }
         }
@@ -279,35 +279,26 @@ const Contacts = ({ id }) => {
                 setFeedback('');
                 setName('');
                 setEmail('');
-                setInfo(<SuccesInfo>Сообщение отправленно.</SuccesInfo>);
-                removeInf();
+                setInfo({ infoStyle: SuccesInfo,  infoText: 'Сообщение отправленно.'});
+
+                removeInf(HideSuccesInfo, 'Сообщение отправленно.');
                 setBtnName('Отправить сообщение');
                 setBtnDisabled(false);
             })
             .catch(err => { console.log(err, 'Ошибка отправки!') })
     }
 
-    const removeErrInf = () => {
+    const removeInf = (style, text) => {
         timer = setTimeout(() => setInfo(
-            <HideErrorInfo>Заполненны не все поля!</HideErrorInfo>), 2000
-        );
-    }
-
-    const removeEmailInf = () => {
-        timer = setTimeout(() => setInfo(
-            <HideErrorInfo>Не корректный email!</HideErrorInfo>), 2000
-        );
-    }
-
-    const removeInf = () => {
-        timer = setTimeout(() => setInfo(
-            <HideSuccesInfo>Сообщение отправленно!</HideSuccesInfo>), 2000
+            { infoStyle: style,  infoText: text}), 2000
         );
     }
 
     useEffect(() => {
         clearTimeout(timer);
     });
+
+    const Info = info.infoStyle;
 
     return (
         <ContactsWrapper id={id}>
@@ -339,7 +330,8 @@ const Contacts = ({ id }) => {
                     delay={1000} >
                     <FormWrapper>
                         <H5>ФОРМА ОБРАТНОЙ СВЯЗИ</H5>
-                        {info}
+                        {/* {info} */}
+                        <Info>{info.infoText}</Info>
                         <Form onSubmit={handleSubmit}>
                             <InputDiv>
                                 <Label>Ваше имя</Label>
