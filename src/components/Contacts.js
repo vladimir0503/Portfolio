@@ -330,7 +330,6 @@ const Contacts = ({ id }) => {
                     delay={1000} >
                     <FormWrapper>
                         <H5>ФОРМА ОБРАТНОЙ СВЯЗИ</H5>
-                        {/* {info} */}
                         <Info>{info.infoText}</Info>
                         <Form onSubmit={handleSubmit}>
                             <InputDiv>

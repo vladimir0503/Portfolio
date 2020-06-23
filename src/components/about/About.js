@@ -181,7 +181,7 @@ const About = ({ about, resume }) => {
                     <ScrollAnimation animateIn='fadeIn'
                         animateOnce={true}
                         delay={1000} >
-                        <Link href='https://yadi.sk/i/Y5p5jh1pGJJBwg' target='_blank' rel="nofollow noopener"><H5>СКАЧАТЬ РЕЗЮМЕ</H5></Link>
+                        <Link href='https://yadi.sk/i/fO8t0SCPZ3fg2w' target='_blank' rel="nofollow noopener"><H5>СКАЧАТЬ РЕЗЮМЕ</H5></Link>
                     </ScrollAnimation>
                 </AboutContent>
             </AboutBlock>
