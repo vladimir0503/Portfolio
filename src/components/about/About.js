@@ -37,7 +37,7 @@ const Mail = styled.h3`
     font-size: 20px;
     color: white;
     font-weight: 300;
-    margin-left: 94px;
+    margin-left: 83px;
     @media screen and (max-width: 1300px) {
         margin-left: 0px;
         text-align: center;
@@ -161,7 +161,7 @@ const About = ({ about, resume }) => {
                         animateOnce={true}
                         duration={2}
                         delay={1000} >
-                        <Mail>Front-end разоработчик | vovan0503@mail.ru</Mail>
+                        <Mail>Front-end разоработчик | vladimirbez0503@mail.ru</Mail>
                     </ScrollAnimation>
                 </NameBlock>
             </NameWrapper>
@@ -181,7 +181,7 @@ const About = ({ about, resume }) => {
                     <ScrollAnimation animateIn='fadeIn'
                         animateOnce={true}
                         delay={1000} >
-                        <Link href='https://yadi.sk/i/fO8t0SCPZ3fg2w' target='_blank' rel="nofollow noopener"><H5>СКАЧАТЬ РЕЗЮМЕ</H5></Link>
+                        <Link href='https://yadi.sk/i/U2MYv13BU6zjYA' target='_blank' rel="nofollow noopener"><H5>СКАЧАТЬ РЕЗЮМЕ</H5></Link>
                     </ScrollAnimation>
                 </AboutContent>
             </AboutBlock>

@@ -311,7 +311,7 @@ const Contacts = ({ id }) => {
                     animateOnce={true}
                     delay={500} >
                     <ContactInfo>
-                        <P><Span>Email</Span><br></br>vovan0503@mail.ru</P>
+                        <P><Span>Email</Span><br></br>vladimirbez0503@mail.ru</P>
                         <P><Span>Адрес</Span><br></br>РФ, г. Москва, бульвар Яна Райниса, д.18</P>
                         <P><Span>Телефон</Span><br></br>+7 999 677 05 46</P>
                         <P><Span>Соцсети</Span></P>
