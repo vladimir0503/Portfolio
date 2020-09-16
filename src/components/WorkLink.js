@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import eye from '../components/images/eye.png';
 import ScrollAnimation from 'react-animate-on-scroll';
+
+import { eye } from './images/index';
 
 const AnimIn = keyframes`
     0%{

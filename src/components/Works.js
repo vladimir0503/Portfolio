@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import ScrollAnimation from 'react-animate-on-scroll';
-import WorkLink from './WorkLink';
+
+import { WorkLink } from './index';
+
 import workList from '../workList';
 
 const Content = styled.div`

@@ -1,6 +1,7 @@
 import React from 'react';
-import Main from './components/Main';
-import { GlobalStyle } from './components/globalStyles/global-styles'
+
+import { Main } from './components/index';
+import { GlobalStyle } from './components/globalStyles/global-styles';
 
 function App() {
   return (

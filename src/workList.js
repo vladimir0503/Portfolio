@@ -1,7 +1,4 @@
-import landing from '../src/components/images/landing.jpg';
-import canban from '../src/components/images/canban.jpg';
-import klient from '../src/components/images/klient.jpg';
-import weather from '../src/components/images/weather.JPG';
+import { landing, canban, klient, weather } from './components/images/index';
 
 const workList = [
   {
