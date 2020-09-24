@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 import ScrollAnimation from 'react-animate-on-scroll';
 
@@ -126,12 +126,28 @@ const WorkLink = ({ img, link, title, descript }) => {
   const [workInit, setWorkInit] = useState(false);
   const WorkAnim = workInit ? EyeBlockIn : EyeBlockOut;
 
+  const linkRef = useRef();
+
+  const initMouseOver = () => {
+    setWorkInit(true);
+  };
+
+  const initMouseOut = (e) => {
+    if (!e.path.includes(linkRef.current)) {
+      setWorkInit(false);
+    }
+  };
+
+  useEffect(() => {
+    document.body.addEventListener('mouseover', initMouseOut);
+  }, []);
+
   return (
     <ScrollAnimation animateIn="fadeIn" animateOnce={true} delay={500}>
       <LinkContayner>
-        <a href={link} target="_blank" rel="noopener noreferrer">
+        <a ref={linkRef} href={link} target="_blank" rel="noopener noreferrer">
           <WorkWrapper style={workImg}>
-            <WorkAnim onMouseOver={() => setWorkInit(true)} onMouseOut={() => setWorkInit(false)}>
+            <WorkAnim onMouseOver={initMouseOver}>
               <img src={eye} alt="eye" />
             </WorkAnim>
           </WorkWrapper>
