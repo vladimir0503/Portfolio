@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import ScrollAnimation from 'react-animate-on-scroll';
 
-import { vk, inst, loader } from './images/index';
+import { vk, inst, loader } from './images';
 
 const ContactsWrapper = styled.div`
   display: flex;

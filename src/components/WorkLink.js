@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 import ScrollAnimation from 'react-animate-on-scroll';
 
-import { eye } from './images/index';
+import { eye } from './images';
 
 const AnimIn = keyframes`
     0%{

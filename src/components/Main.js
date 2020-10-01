@@ -4,7 +4,7 @@ import { Link } from 'react-scroll';
 
 import { NavElem, About, Works, Contacts, Footer } from './index';
 
-import { resume, works, contacts, person } from './images/index';
+import { resume, works, contacts, person } from './images';
 
 const Header = styled.div`
   top: 0;

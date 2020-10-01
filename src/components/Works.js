@@ -42,9 +42,8 @@ const Works = ({ id }) => (
       <H5 id={id}>ПОРТФОЛИО</H5>
     </ScrollAnimation>
     <LinkWrapper>
-      {workList.map((item, index) => (
-        <WorkLink key={`${item.title}_${index}`} {...item} />
-      ))}
+      {workList &&
+        workList.map((item, index) => <WorkLink key={`${item.title}_${index}`} {...item} />)}
     </LinkWrapper>
   </Content>
 );
