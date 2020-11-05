@@ -33,7 +33,7 @@ const workList = [
   },
   {
     img: weather,
-    link: 'https://vladimir0503.github.io/Weather_dashboard/',
+    link: 'https://competent-turing-e78262.netlify.app/',
     title: 'Weather App',
     descript:
       'Небольшое погодное приложение. При написании использовался стек React, Redux, Axios. Для API \n' +

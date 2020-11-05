@@ -42,6 +42,8 @@ const nawBtn = [
   },
 ];
 
+console.log('test')
+ 
 const Main = () => {
   return (
     <>
