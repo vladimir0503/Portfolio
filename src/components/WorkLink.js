@@ -133,7 +133,9 @@ const WorkLink = ({ img, link, title, descript }) => {
   };
 
   const initMouseOut = (e) => {
-    if (!e.path.includes(linkRef.current)) {
+    const path = e.path || (e.composedPath && e.composedPath());
+
+    if (!path.includes(linkRef.current)) {
       setWorkInit(false);
     }
   };

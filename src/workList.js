@@ -1,4 +1,4 @@
-import { landing, canban, klient, weather } from './components/images';
+import { landing, canban, klient, weather, finances } from './components/images';
 
 const workList = [
   {
@@ -38,6 +38,15 @@ const workList = [
     descript:
       'Небольшое погодное приложение. При написании использовался стек React, Redux, Axios. Для API \n' +
       'использовался сервис OpenWeatherMap.',
+  },
+  {
+    img: finances,
+    link: 'https://steadfast-arm.surge.sh/',
+    title: 'My finances',
+    descript:
+      'Приложение для контроля личных финансов. Реализована возможность регистрации пользователей. \n' +
+      'Стек - React, Redux, Axios. \n' +
+      'Для бэкенда используется Firebase.'
   },
 ];
 
