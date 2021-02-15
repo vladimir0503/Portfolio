@@ -15,3 +15,4 @@ export { default as vk } from './vk.png';
 export { default as weather } from './weather.JPG';
 export { default as works } from './works.png';
 export { default as finances } from './finances.jpg';
+export { default as allFilms } from './allFilms.jpg';

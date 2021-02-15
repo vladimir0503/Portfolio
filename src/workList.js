@@ -1,4 +1,4 @@
-import { landing, canban, klient, weather, finances } from './components/images';
+import { landing, canban, klient, weather, finances, allFilms } from './components/images';
 
 const workList = [
   {
@@ -47,6 +47,14 @@ const workList = [
       'Приложение для контроля личных финансов. Реализована возможность регистрации пользователей. \n' +
       'Стек - React, Redux, Axios. \n' +
       'Для бэкенда используется Firebase.'
+  },
+  {
+    img: allFilms,
+    link: 'https://all-films.herokuapp.com/',
+    title: 'All films',
+    descript:
+      'Приложение для поиска фильмов. Информация о фильмах берется с базы данных кинопоиска. \n' +
+      'Стек - React, Redux.'
   },
 ];
 
