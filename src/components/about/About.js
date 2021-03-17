@@ -175,7 +175,7 @@ const About = ({ about, resume }) => {
             </P>
           </ScrollAnimation>
           <ScrollAnimation animateIn="fadeIn" animateOnce={true} delay={1000}>
-            <Link href="https://yadi.sk/i/U2MYv13BU6zjYA" target="_blank" rel="nofollow noopener">
+            <Link href="https://disk.yandex.ru/i/Rq8IAt92E_BpkA" target="_blank" rel="nofollow noopener">
               <H5>СКАЧАТЬ РЕЗЮМЕ</H5>
             </Link>
           </ScrollAnimation>
