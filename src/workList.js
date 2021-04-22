@@ -50,7 +50,7 @@ const workList = [
   },
   {
     img: allFilms,
-    link: 'https://all-films.herokuapp.com/',
+    link: 'https://all-films.surge.sh/',
     title: 'All films',
     descript:
       'Приложение для поиска фильмов. Информация о фильмах берется с базы данных кинопоиска. \n' +
