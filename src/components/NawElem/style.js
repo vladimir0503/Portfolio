@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const Div = styled.div`
+export const Div = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,13 +12,3 @@ const Div = styled.div`
     background: #1bb899;
   }
 `;
-
-const NavElem = ({ img }) => {
-  return (
-    <Div>
-      <img src={img} alt="person" width="35px" height="35px" />
-    </Div>
-  );
-};
-
-export default NavElem;

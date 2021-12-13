@@ -1,7 +1,7 @@
 import React from 'react';
+import Main from './components/Main/Main';
 
-import { Main } from './components';
-import { GlobalStyle } from './components/globalStyles/global-styles';
+import { GlobalStyle } from './common/globalStyles/global-styles';
 
 function App() {
   return (
@@ -10,6 +10,6 @@ function App() {
       <Main />
     </>
   );
-}
+};
 
 export default App;

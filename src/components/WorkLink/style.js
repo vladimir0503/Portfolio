@@ -1,10 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
-import ScrollAnimation from 'react-animate-on-scroll';
 
-import { eye } from './images';
-
-const AnimIn = keyframes`
+export const AnimIn = keyframes`
     0%{
     -webkit-transform: translateZ(-800px) rotateX(90deg);
     transform: translateZ(-800px) rotateX(90deg);
@@ -21,7 +17,7 @@ const AnimIn = keyframes`
   }
 `;
 
-const AnimOut = keyframes`
+export const AnimOut = keyframes`
     0%{
         -webkit-transform: translateZ(0) rotateX(0);
         transform: translateZ(0) rotateX(0);
@@ -38,7 +34,7 @@ const AnimOut = keyframes`
     }
 `;
 
-const WorkWrapper = styled.div`
+export const WorkWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,7 +57,7 @@ const WorkWrapper = styled.div`
   }
 `;
 
-const EyeBlockIn = styled.div`
+export const EyeBlockIn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,7 +70,7 @@ const EyeBlockIn = styled.div`
   }
 `;
 
-const EyeBlockOut = styled.div`
+export const EyeBlockOut = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,7 +83,7 @@ const EyeBlockOut = styled.div`
   }
 `;
 
-const LinkContayner = styled.div`
+export const LinkContainer = styled.div`
   display: flex;
   margin-bottom: 25px;
   @media screen and (max-width: 1300px) {
@@ -95,9 +91,9 @@ const LinkContayner = styled.div`
   }
 `;
 
-const DescriptBlock = styled.div``;
+export const DescriptBlock = styled.div``;
 
-const H5 = styled.h5`
+export const H5 = styled.h5`
   font-weight: 300;
   color: #333;
   font-size: 14px;
@@ -106,7 +102,7 @@ const H5 = styled.h5`
   margin-bottom: 25px;
 `;
 
-const Descript = styled.p`
+export const Descript = styled.p`
   line-height: 28px;
   margin-bottom: 25px;
   margin: 0 0 10px;
@@ -119,48 +115,3 @@ const Descript = styled.p`
     width: 300px;
   }
 `;
-
-const WorkLink = ({ img, link, title, descript }) => {
-  const workImg = { backgroundImage: `url(${img})` };
-
-  const [workInit, setWorkInit] = useState(false);
-  const WorkAnim = workInit ? EyeBlockIn : EyeBlockOut;
-
-  const linkRef = useRef();
-
-  const initMouseOver = () => {
-    setWorkInit(true);
-  };
-
-  const initMouseOut = (e) => {
-    const path = e.path || (e.composedPath && e.composedPath());
-
-    if (!path.includes(linkRef.current)) {
-      setWorkInit(false);
-    }
-  };
-
-  useEffect(() => {
-    document.body.addEventListener('mouseover', initMouseOut);
-  }, []);
-
-  return (
-    <ScrollAnimation animateIn="fadeIn" animateOnce={true} delay={500}>
-      <LinkContayner>
-        <a ref={linkRef} href={link} target="_blank" rel="noopener noreferrer">
-          <WorkWrapper style={workImg}>
-            <WorkAnim onMouseOver={initMouseOver}>
-              <img src={eye} alt="eye" />
-            </WorkAnim>
-          </WorkWrapper>
-        </a>
-        <DescriptBlock>
-          <H5>{title}</H5>
-          <Descript>{descript}</Descript>
-        </DescriptBlock>
-      </LinkContayner>
-    </ScrollAnimation>
-  );
-};
-
-export default WorkLink;

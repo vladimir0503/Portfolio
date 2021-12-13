@@ -1,4 +1,4 @@
-import { landing, canban, klient, weather, finances, allFilms } from './components/images';
+import { landing, canban, klient, weather, finances, allFilms } from './images'
 
 const workList = [
   {

@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { loader } from '../images';
+import { loader } from '../../common/images';
 
 export const H5 = styled.h5`
   color: white;

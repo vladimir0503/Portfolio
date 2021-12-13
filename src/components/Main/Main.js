@@ -1,25 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-scroll';
-import { NavElem, About, Works, Contacts, Footer } from './index';
-import { resume, works, contacts, person } from './images';
+import { resume, works, contacts, person } from '../../common/images';
 
-const Header = styled.div`
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  height: 64px;
-  background: #111;
-  position: fixed;
-  z-index: 10000;
-`;
+import About from '../about/About/About';
+import Works from '../Works/Works';
+import Contacts from '../Contacts/Contacts';
+import NavElem from '../NawElem/NavElem';
+import Footer from '../Footer/Footer';
 
-const NawDiv = styled.nav`
-  display: flex;
-  width: 312px;
-  margin: 0 auto;
-`;
+import * as St from './style.js';
 
 const nawBtn = [
   {
@@ -43,8 +32,8 @@ const nawBtn = [
 const Main = () => {
   return (
     <>
-      <Header>
-        <NawDiv>
+      <St.Header>
+        <St.NawDiv>
           {nawBtn.map((item, index) => (
             <Link
               key={`${item.to}_${index}`}
@@ -56,8 +45,8 @@ const Main = () => {
               <NavElem img={item.img} />
             </Link>
           ))}
-        </NawDiv>
-      </Header>
+        </St.NawDiv>
+      </St.Header>
       <About about="about" resume="resume" />
       <Works id="works" />
       <Contacts id="contacts" />
