@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
-
 import { NavElem, About, Works, Contacts, Footer } from './index';
-
 import { resume, works, contacts, person } from './images';
 
 const Header = styled.div`
@@ -42,8 +40,6 @@ const nawBtn = [
   },
 ];
 
-console.log('test')
- 
 const Main = () => {
   return (
     <>
