@@ -41,11 +41,11 @@ const workList = [
   },
   {
     img: finances,
-    link: 'https://steadfast-arm.surge.sh/',
+    link: 'https://financial-control.surge.sh/',
     title: 'My finances',
     descript:
       'Приложение для контроля личных финансов. Реализована возможность регистрации пользователей. \n' +
-      'Стек - React, Redux, Axios. \n' +
+      'Стек - React, Redux. \n' +
       'Для бэкенда используется Firebase.'
   },
   {
