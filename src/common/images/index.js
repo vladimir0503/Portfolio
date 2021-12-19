@@ -12,7 +12,7 @@ export { default as person } from './person.png';
 export { default as react } from './react.png';
 export { default as resume } from './resume.png';
 export { default as vk } from './vk.png';
-export { default as weather } from './weather.JPG';
 export { default as works } from './works.png';
 export { default as finances } from './finances.jpg';
 export { default as allFilms } from './allFilms.jpg';
+export { default as animLanding } from './anim-landing.JPG';

@@ -5,7 +5,7 @@ export const Header = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  width: 100vw;
+  width: 100%;
   height: 64px;
   background: #111;
   position: fixed;

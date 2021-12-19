@@ -1,4 +1,4 @@
-import { landing, canban, klient, weather, finances, allFilms } from './images'
+import { landing, canban, klient, animLanding, finances, allFilms } from './images'
 
 const workList = [
   {
@@ -32,12 +32,11 @@ const workList = [
       'React.js. Для взаимодействия с API сервера использовалась библиотека Axios.',
   },
   {
-    img: weather,
-    link: 'https://weather-dashboard-pink.vercel.app/',
-    title: 'Weather App',
+    img: animLanding,
+    link: 'https://anim-landing.surge.sh/',
+    title: 'Anim landing',
     descript:
-      'Небольшое погодное приложение. При написании использовался стек React, Redux, Axios. Для API \n' +
-      'использовался сервис OpenWeatherMap.',
+      'Стильный лендинг с анимированным роутингом.'
   },
   {
     img: finances,

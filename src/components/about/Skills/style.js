@@ -4,7 +4,7 @@ export const SkillsWrapper = styled.div`
   display: flex;
   align-items: center;
   background: #2c3e50;
-  width: 100vw;
+  width: 100%;
   height: 257px;
   @media screen and (max-width: 1300px) {
     height: 748px;

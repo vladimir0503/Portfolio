@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ContactsWrapper = styled.div`
   display: flex;
-  width: 100vw;
+  width: 100%;
   height: 509px;
   padding-top: 50px;
   background: #2f2f2f;

@@ -5,7 +5,7 @@ export const NameWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 500px;
   background: url(${about});
   margin-top: 60px;
@@ -44,7 +44,7 @@ export const Mail = styled.h3`
 export const AboutBlock = styled.div`
   display: flex;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 257px;
   background: #2c3e50;
 `;
