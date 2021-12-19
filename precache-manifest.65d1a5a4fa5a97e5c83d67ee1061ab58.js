@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "88b00fef586266e00da22d5e702fe775",
+    "revision": "32dd17c5d1e77bb2d8051151e4746eff",
     "url": "/Portfolio/index.html"
   },
   {
-    "revision": "b7e36a91e77aec14cfc6",
+    "revision": "f20ad6bd4f538e9e9f1f",
     "url": "/Portfolio/static/css/main.69eda509.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Portfolio/static/js/2.54b63c53.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b7e36a91e77aec14cfc6",
-    "url": "/Portfolio/static/js/main.fe674ce1.chunk.js"
+    "revision": "f20ad6bd4f538e9e9f1f",
+    "url": "/Portfolio/static/js/main.08f8db5d.chunk.js"
   },
   {
     "revision": "f7114bd3362d877c96cd",
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "9b8a111c02d2bd056009fb4cb7f09178",
     "url": "/Portfolio/static/media/allFilms.9b8a111c.jpg"
+  },
+  {
+    "revision": "3b5342081b80fd8756cb98b06d246b43",
+    "url": "/Portfolio/static/media/anim-landing.3b534208.JPG"
   },
   {
     "revision": "3b67aa71f0d6087fecc1d23f954f3844",
@@ -46,9 +50,5 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "efb6081c45f9bd158fd307be618a1f62",
     "url": "/Portfolio/static/media/landing.efb6081c.jpg"
-  },
-  {
-    "revision": "2f5ec4b59f6049cdc9e15157cfe6b50e",
-    "url": "/Portfolio/static/media/weather.2f5ec4b5.JPG"
   }
 ]);
