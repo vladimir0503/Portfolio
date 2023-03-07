@@ -42,6 +42,7 @@ export const Mail = styled.h3`
 `;
 
 export const AboutBlock = styled.div`
+  padding-top: 17px;
   display: flex;
   align-items: center;
   width: 100%;

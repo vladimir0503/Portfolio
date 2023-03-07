@@ -12,7 +12,7 @@ const Works = ({ id }) => (
     </ScrollAnimation>
     <St.LinkWrapper>
       {workList &&
-        workList.map((item, index) => <WorkLink key={`${item.title}_${index}`} {...item} />)}
+        workList.map((item, index) => <WorkLink key={`${item.title}_${index}`} {...item} index={index} />)}
     </St.LinkWrapper>
   </St.Content>
 );

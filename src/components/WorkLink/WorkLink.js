@@ -4,9 +4,12 @@ import { eye } from '../../common/images';
 
 import * as St from './style.js';
 
-const WorkLink = ({ img, link, title, descript }) => {
+const WorkLink = ({ img, link, title, descript, index }) => {
   const [workInit, setWorkInit] = useState(false);
-  const workImg = { backgroundImage: `url(${img})` };
+  const workImg = {
+    backgroundImage: `url(${img})`,
+    backgroundPosition: index === 1 && 'center'
+  };
   const WorkAnim = workInit ? St.EyeBlockIn : St.EyeBlockOut;
   const linkRef = useRef();
 
