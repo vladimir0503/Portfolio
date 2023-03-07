@@ -1,29 +1,29 @@
 {
   "files": {
     "main.css": "/Portfolio/static/css/main.69eda509.chunk.css",
-    "main.js": "/Portfolio/static/js/main.08f8db5d.chunk.js",
-    "main.js.map": "/Portfolio/static/js/main.08f8db5d.chunk.js.map",
+    "main.js": "/Portfolio/static/js/main.b8804b88.chunk.js",
+    "main.js.map": "/Portfolio/static/js/main.b8804b88.chunk.js.map",
     "runtime-main.js": "/Portfolio/static/js/runtime-main.5f70be4b.js",
     "runtime-main.js.map": "/Portfolio/static/js/runtime-main.5f70be4b.js.map",
     "static/js/2.54b63c53.chunk.js": "/Portfolio/static/js/2.54b63c53.chunk.js",
     "static/js/2.54b63c53.chunk.js.map": "/Portfolio/static/js/2.54b63c53.chunk.js.map",
     "index.html": "/Portfolio/index.html",
-    "precache-manifest.65d1a5a4fa5a97e5c83d67ee1061ab58.js": "/Portfolio/precache-manifest.65d1a5a4fa5a97e5c83d67ee1061ab58.js",
+    "precache-manifest.13be297d797f99409f412f805dd8f667.js": "/Portfolio/precache-manifest.13be297d797f99409f412f805dd8f667.js",
     "service-worker.js": "/Portfolio/service-worker.js",
     "static/css/main.69eda509.chunk.css.map": "/Portfolio/static/css/main.69eda509.chunk.css.map",
     "static/js/2.54b63c53.chunk.js.LICENSE.txt": "/Portfolio/static/js/2.54b63c53.chunk.js.LICENSE.txt",
     "static/media/about.jpeg": "/Portfolio/static/media/about.015a664e.jpeg",
     "static/media/allFilms.jpg": "/Portfolio/static/media/allFilms.9b8a111c.jpg",
     "static/media/anim-landing.JPG": "/Portfolio/static/media/anim-landing.3b534208.JPG",
-    "static/media/canban.jpg": "/Portfolio/static/media/canban.3b67aa71.jpg",
     "static/media/finances.jpg": "/Portfolio/static/media/finances.48c741d1.jpg",
-    "static/media/klient.jpg": "/Portfolio/static/media/klient.83233558.jpg",
-    "static/media/landing.jpg": "/Portfolio/static/media/landing.efb6081c.jpg"
+    "static/media/history.jpg": "/Portfolio/static/media/history.829a053a.jpg",
+    "static/media/landing.jpg": "/Portfolio/static/media/landing.efb6081c.jpg",
+    "static/media/sblanding.jpg": "/Portfolio/static/media/sblanding.b32a2c06.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.5f70be4b.js",
     "static/js/2.54b63c53.chunk.js",
     "static/css/main.69eda509.chunk.css",
-    "static/js/main.08f8db5d.chunk.js"
+    "static/js/main.b8804b88.chunk.js"
   ]
 }

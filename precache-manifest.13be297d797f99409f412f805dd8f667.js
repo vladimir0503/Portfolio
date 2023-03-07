@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "32dd17c5d1e77bb2d8051151e4746eff",
+    "revision": "fd44856776bd1c5418adb24bd3a317e0",
     "url": "/Portfolio/index.html"
   },
   {
-    "revision": "f20ad6bd4f538e9e9f1f",
+    "revision": "038dc1f5d8f0e564e8ec",
     "url": "/Portfolio/static/css/main.69eda509.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Portfolio/static/js/2.54b63c53.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f20ad6bd4f538e9e9f1f",
-    "url": "/Portfolio/static/js/main.08f8db5d.chunk.js"
+    "revision": "038dc1f5d8f0e564e8ec",
+    "url": "/Portfolio/static/js/main.b8804b88.chunk.js"
   },
   {
     "revision": "f7114bd3362d877c96cd",
@@ -36,19 +36,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Portfolio/static/media/anim-landing.3b534208.JPG"
   },
   {
-    "revision": "3b67aa71f0d6087fecc1d23f954f3844",
-    "url": "/Portfolio/static/media/canban.3b67aa71.jpg"
-  },
-  {
     "revision": "48c741d1823192c3ad16dceea13349b8",
     "url": "/Portfolio/static/media/finances.48c741d1.jpg"
   },
   {
-    "revision": "832335587d5da03ad0e2300b889e7452",
-    "url": "/Portfolio/static/media/klient.83233558.jpg"
+    "revision": "829a053afbc64be7da95ef9fbe5a90d8",
+    "url": "/Portfolio/static/media/history.829a053a.jpg"
   },
   {
     "revision": "efb6081c45f9bd158fd307be618a1f62",
     "url": "/Portfolio/static/media/landing.efb6081c.jpg"
+  },
+  {
+    "revision": "b32a2c0600f146d0dc8a79e81a669dac",
+    "url": "/Portfolio/static/media/sblanding.b32a2c06.jpg"
   }
 ]);
