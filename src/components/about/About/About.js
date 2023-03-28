@@ -12,7 +12,7 @@ const About = ({ about, resume }) => (
           <St.Name>Владимир Безобразов</St.Name>
         </ScrollAnimation>
         <ScrollAnimation animateIn="fadeIn" animateOnce={true} duration={2} delay={1000}>
-          <St.Mail>Front-end разоработчик | vladimirbez0503@mail.ru</St.Mail>
+          <St.Mail>Frontend разоработчик | vladimirbez0503@mail.ru</St.Mail>
         </ScrollAnimation>
       </St.NameBlock>
     </St.NameWrapper>
