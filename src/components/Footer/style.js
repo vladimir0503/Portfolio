@@ -8,6 +8,8 @@ export const FooterWrapper = styled.footer`
 `;
 
 export const FooterContent = styled.div`
+    display: flex;
+    align-items: center;
     margin: 0 auto;
 `;
 
