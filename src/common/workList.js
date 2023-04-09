@@ -1,9 +1,9 @@
-import { landing, canban, sblanding, animLanding, finances, allFilms, history } from './images'
+import { landing, sblanding, animLanding, finances, allFilms, history } from './images'
 
 const workList = [
   {
     img: landing,
-    link: 'https://vladimir0503.github.io/slider-in-landing-page/',
+    link: 'https://repair-design.surge.sh/',
     title: 'REPAIR DESIGN PROJECT',
     descript:
       'Одностраничный лендинг дизайнерского агенства.\n' +
