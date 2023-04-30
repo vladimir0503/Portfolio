@@ -30,7 +30,7 @@ const About = ({ about, resume }) => (
           </St.P>
         </ScrollAnimation>
         <ScrollAnimation animateIn="fadeIn" animateOnce={true} delay={1000}>
-          <St.Link href="https://disk.yandex.ru/i/LZ1hhbLQo3AHDg" target="_blank" rel="nofollow noopener">
+          <St.Link href="https://disk.yandex.ru/i/rgVekRdtJtyJNw" target="_blank" rel="nofollow noopener">
             <St.H5>СКАЧАТЬ РЕЗЮМЕ</St.H5>
           </St.Link>
         </ScrollAnimation>
