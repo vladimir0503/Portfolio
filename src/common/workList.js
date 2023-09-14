@@ -3,7 +3,7 @@ import { landing, sblanding, animLanding, finances, allFilms, history } from './
 const workList = [
   {
     img: landing,
-    link: 'https://repair-design.surge.sh/',
+    link: 'https://stirring-mandazi-c56f99.netlify.app/',
     title: 'REPAIR DESIGN PROJECT',
     descript:
       'Одностраничный лендинг дизайнерского агенства.\n' +
@@ -24,7 +24,7 @@ const workList = [
   },
   {
     img: history,
-    link: 'http://teacher-test.surge.sh/',
+    link: 'https://leafy-twilight-9e7ab1.netlify.app/',
     title: 'ШКОЛА ВЕРШИНСКОГО',
     descript:
       'Лендинг, созданный для репетитора по истории.\n' +
@@ -40,16 +40,6 @@ const workList = [
       'Стильный лендинг с анимированным роутингом. \n' +
       'В этом проекте роутинг осуществляется с использованием интерактивных анимаций. \n' +
       'Такой подход делает навигацию более привлекательной и легкой для пользователей.'
-  },
-  {
-    img: finances,
-    link: 'https://financial-control.surge.sh/',
-    title: 'MY FINANCES',
-    descript:
-      'Приложение для контроля личных финансов, разработанное с использованием React и Redux.\n' +
-      'Бэкенд осуществляется через Firebase, что позволяет легко хранить и обрабатывать данные. \n' +
-      'Приложение позволяет пользователям регистрироваться и создавать аккаунты, \n' +
-      'а также отслеживать свои расходы и доходы, планировать бюджет.'
   },
   {
     img: allFilms,
